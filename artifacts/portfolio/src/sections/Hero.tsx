@@ -72,10 +72,10 @@ function TerminalWidget() {
   );
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full lg:h-full lg:flex lg:flex-col">
       <div className="absolute -inset-2 bg-gradient-to-br from-[var(--accent-cool)] via-transparent to-[var(--accent-warm)] rounded opacity-[0.06] blur-2xl pointer-events-none" />
 
-      <div className="relative bg-[#07070f] border border-[rgba(61,209,229,0.15)] rounded-sm overflow-hidden">
+      <div className="relative bg-[#07070f] border border-[rgba(61,209,229,0.15)] rounded-sm overflow-hidden lg:flex lg:flex-col lg:h-full">
         {/* Title bar */}
         <div className="flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-[#0c0c1a] border-b border-[rgba(61,209,229,0.1)]">
           <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#ff5f57]" />
@@ -93,8 +93,8 @@ function TerminalWidget() {
           </div>
         </div>
 
-        {/* Body — fix #3: min-h-[200px] on mobile, 0.72rem font */}
-        <div className="px-4 sm:px-6 py-3 sm:py-5 font-mono space-y-1.5 sm:space-y-2 min-h-[200px] sm:min-h-[240px]">
+        {/* Body — min-h on mobile, flex-1 on lg so terminal stretches */}
+        <div className="px-4 sm:px-6 py-3 sm:py-5 font-mono space-y-1.5 sm:space-y-2 min-h-[200px] sm:min-h-[240px] lg:flex-1">
           {doneLines.map((line, i) => (
             <div key={i} className={`text-[0.72rem] sm:text-sm leading-relaxed ${lineClass(line.warm, line.cool)}`}>
               {line.text}
@@ -234,7 +234,7 @@ export default function Hero() {
       ref={sectionRef}
       /* fix #1: flex-col + justify-between distributes content + scroll indicator evenly */
       /* fix #3 mobile: pb-16 (4rem) so buttons never crowd the scroll indicator        */
-      className="relative min-h-[100svh] lg:h-[100dvh] flex flex-col justify-between overflow-x-hidden px-5 sm:px-8 lg:px-16 pt-24 sm:pt-[6rem] pb-16 lg:pb-[5rem]"
+      className="relative min-h-[100svh] lg:h-[100dvh] flex flex-col overflow-x-hidden px-5 sm:px-8 lg:px-16 pt-20 sm:pt-24 pb-16"
     >
       {/* ── Aurora background ── */}
       <div className="absolute inset-0 z-0 bg-[#050505]">
@@ -250,10 +250,11 @@ export default function Hero() {
 
       <ParticleCanvas />
 
-      {/* ── Content grid (flex child 1 — sits at top after pt-24) ── */}
+      {/* ── Content grid — flex-1 centers it between nav padding and bottom ── */}
+      <div className="relative z-10 flex-1 flex items-center">
       <div
         ref={contentRef}
-        className="relative z-10 w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center"
+        className="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center lg:items-stretch"
       >
         {/* ── LEFT ── */}
         <div className="flex flex-col">
@@ -330,13 +331,14 @@ export default function Hero() {
         </div>
 
         {/* ── RIGHT — terminal ── */}
-        <div className="hero-terminal mt-5 lg:mt-0 max-h-[260px] lg:max-h-none overflow-hidden lg:overflow-visible">
+        <div className="hero-terminal mt-5 lg:mt-0 max-h-[260px] lg:max-h-none overflow-hidden lg:overflow-visible lg:flex lg:flex-col lg:h-full">
           <TerminalWidget />
         </div>
       </div>
+      </div>
 
-      {/* ── Scroll indicator (flex child 2 — fix #1: in flow at bottom, fix #4: natural mt from pb) ── */}
-      <div className="relative z-10 flex flex-col items-center gap-1 self-center mt-8">
+      {/* ── Scroll indicator — pinned to bottom, never creates a gap ── */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1">
         <span
           className="font-mono uppercase text-[var(--text-secondary)]"
           style={{ fontSize: '0.7rem', letterSpacing: '0.15em', opacity: 0.5 }}
