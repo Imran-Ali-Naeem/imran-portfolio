@@ -26,7 +26,7 @@ const TECH_META: Record<string, { color: string; Icon?: IconType }> = {
   'Vision Models': { color: '#6366F1' },
   'Python':        { color: '#3776AB', Icon: SiPython },
   'C++':           { color: '#00599C', Icon: SiCplusplus },
-  'NumPy':         { color: '#013243', Icon: SiNumpy },
+  'NumPy':         { color: '#4DABCF', Icon: SiNumpy },
   'Oracle SQL':    { color: '#F80000' },
   'MS SQL Server': { color: '#CC2927' },
   'MongoDB':       { color: '#47A248', Icon: SiMongodb },

@@ -67,7 +67,7 @@ type TechItem = {
   name: string;
   color: string;
   Icon?: IconType;
-  Custom?: () => ReactElement;
+  Custom?: (props: { size: number }) => ReactElement;
 };
 
 type Category = {
@@ -84,8 +84,8 @@ const STACK: Category[] = [
       { name: 'LangChain',    color: '#1BCB87', Icon: SiLangchain },
       { name: 'Gemini API',   color: '#8E75B2', Icon: SiGooglegemini },
       { name: 'Scikit-learn', color: '#F7931E', Icon: SiScikitlearn },
-      { name: 'RAG Pipeline', color: '#3DDDD5', Custom: () => <RagIcon /> },
-      { name: 'Vector DB',    color: '#8B5CF6', Custom: () => <VectorDbIcon /> },
+      { name: 'RAG Pipeline', color: '#3DDDD5', Custom: (p) => <RagIcon size={p.size} /> },
+      { name: 'Vector DB',    color: '#8B5CF6', Custom: (p) => <VectorDbIcon size={p.size} /> },
     ],
   },
   {
@@ -93,10 +93,10 @@ const STACK: Category[] = [
     items: [
       { name: 'Python',     color: '#3776AB', Icon: SiPython },
       { name: 'C++',        color: '#00599C', Icon: SiCplusplus },
-      { name: 'NumPy',      color: '#013243', Icon: SiNumpy },
+      { name: 'NumPy',      color: '#4DABCF', Icon: SiNumpy },
       { name: 'MongoDB',    color: '#47A248', Icon: SiMongodb },
-      { name: 'Oracle SQL', color: '#F80000', Custom: () => <OracleIcon /> },
-      { name: 'MS SQL',     color: '#CC2927', Custom: () => <MssqlIcon /> },
+      { name: 'Oracle SQL', color: '#F80000', Custom: (p) => <OracleIcon size={p.size} /> },
+      { name: 'MS SQL',     color: '#CC2927', Custom: (p) => <MssqlIcon size={p.size} /> },
     ],
   },
   {
@@ -106,7 +106,7 @@ const STACK: Category[] = [
       { name: 'FastAPI',    color: '#009688', Icon: SiFastapi },
       { name: 'Git',        color: '#F05032', Icon: SiGit },
       { name: 'GitHub',     color: '#e0e0e0', Icon: SiGithub },
-      { name: 'Playwright', color: '#2EAD33', Custom: () => <PlaywrightIcon /> },
+      { name: 'Playwright', color: '#2EAD33', Custom: (p) => <PlaywrightIcon size={p.size} /> },
       { name: 'Selenium',   color: '#43B02A', Icon: SiSelenium },
       { name: 'pytest',     color: '#0A9EDC', Icon: SiPytest },
     ],
@@ -197,9 +197,9 @@ function TechCard({ tech }: { tech: TechItem }) {
       }}
     >
       {/* Icon */}
-      <span className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+      <span className="flex-shrink-0 w-[26px] h-[26px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
         {Custom ? (
-          <Custom />
+          <Custom size={26} />
         ) : Icon ? (
           <Icon size={26} style={{ color }} />
         ) : null}
