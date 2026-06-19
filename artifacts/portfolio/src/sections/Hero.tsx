@@ -182,7 +182,7 @@ function TaglineLoop() {
           key={i}
           className="font-display font-bold"
           style={{
-            fontSize: 'clamp(1.6rem, 5.5vw, 3.5rem)',
+            fontSize: 'clamp(1.6rem, 5.5vw, 2.75rem)',
             color: w.color,
             display: 'inline-block',
             transform: shown > i ? 'translateY(0)' : 'translateY(28px)',
@@ -258,14 +258,14 @@ export default function Hero() {
       >
         {/* ── LEFT ── */}
         <div className="flex flex-col">
-          <div className="hero-eyebrow font-mono text-[var(--accent-warm)] text-[10px] sm:text-xs tracking-widest uppercase mb-3 sm:mb-4 lg:mb-6 flex items-center gap-3">
+          <div className="hero-eyebrow font-mono text-[var(--accent-warm)] text-[10px] sm:text-xs tracking-widest uppercase mb-3 sm:mb-4 flex items-center gap-3">
             <span className="w-8 sm:w-10 h-px bg-[var(--accent-warm)] opacity-50" />
             AI Engineer / Machine Learning
           </div>
 
           <h1
-            className="hero-name font-display font-bold leading-[0.9] tracking-tighter mb-3 sm:mb-4 lg:mb-7"
-            style={{ fontSize: 'clamp(3rem, 9vw, 8rem)' }}
+            className="hero-name font-display font-bold leading-[0.9] tracking-tighter mb-3 sm:mb-4"
+            style={{ fontSize: 'clamp(3rem, 10vw, 6rem)' }}
           >
             <span className="block text-[var(--text-primary)]">Imran</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-warm)] via-[#f3d399] to-[var(--text-primary)]">
@@ -274,19 +274,19 @@ export default function Hero() {
           </h1>
 
           <p
-            className="hero-desc text-[var(--text-secondary)] max-w-[480px] leading-relaxed mb-3 sm:mb-4 lg:mb-6 border-l-2 border-[var(--border-subtle)] pl-4 sm:pl-5"
-            style={{ fontSize: 'clamp(0.85rem, 1.4vw, 1.1rem)' }}
+            className="hero-desc text-[var(--text-secondary)] max-w-[480px] leading-relaxed mb-3 sm:mb-4 border-l-2 border-[var(--border-subtle)] pl-4 sm:pl-5"
+            style={{ fontSize: 'clamp(0.82rem, 1.2vw, 1rem)' }}
           >
             Building precision AI systems—from clinical RAG pipelines to diffusion models trained from scratch. Transforming theoretical research into production-ready infrastructure.
           </p>
 
           {/* fix #3: tagline visible on mobile (no hidden class) */}
-          <div className="hero-tagline mb-3 sm:mb-4 lg:mb-6">
+          <div className="hero-tagline mb-3 sm:mb-4">
             <TaglineLoop />
           </div>
 
           <div
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4 sm:mb-5 lg:mb-7 font-mono text-[var(--text-secondary)]"
+            className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4 sm:mb-5 font-mono text-[var(--text-secondary)]"
             style={{ fontSize: '0.85rem', opacity: 0.85, letterSpacing: '0.02em' }}
           >
             <span className="hero-meta flex items-center gap-2">
