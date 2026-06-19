@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 38 76% 57%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 187 76% 57%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 5% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 240 5% 20%;
+    --radius: 0.5rem;
+
+    --bg-primary: #050505;
+    --text-primary: #f8f8f8;
+    --text-secondary: #909099;
+    --accent-warm: #e5a93d;
+    --accent-cool: #3dd1e5;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .text-glow-warm {
+    text-shadow: 0 0 20px rgba(229, 169, 61, 0.4);
+  }
+  .text-glow-cool {
+    text-shadow: 0 0 20px rgba(61, 209, 229, 0.4);
+  }
+  .border-glow-warm {
+    box-shadow: 0 0 15px rgba(229, 169, 61, 0.15);
+  }
+}
+
+::selection {
+  background: rgba(229, 169, 61, 0.3);
+  color: #fff;
+}

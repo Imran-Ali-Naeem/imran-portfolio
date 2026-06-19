@@ -1,0 +1,132 @@
+import { useState } from 'react';
+import { Link } from 'wouter';
+import { ArrowLeft, ArrowUpRight, Github, ExternalLink } from 'lucide-react';
+import { projects, ALL_CATEGORIES } from '../data/projects';
+
+export default function ProjectsPage() {
+  const [activeTab, setActiveTab] = useState('All');
+
+  const filteredProjects = activeTab === 'All' 
+    ? projects 
+    : projects.filter(p => p.categories.includes(activeTab));
+
+  // Sort so featured show first
+  const sortedProjects = [...filteredProjects].sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return a.id - b.id;
+  });
+
+  return (
+    <div className="min-h-screen bg-[#030303] pt-32 pb-24 px-8 lg:px-16">
+      <div className="max-w-[1200px] mx-auto">
+        <Link 
+          href="/"
+          className="inline-flex items-center gap-2 font-mono text-sm text-[var(--text-secondary)] hover:text-[var(--accent-warm)] transition-colors mb-16"
+        >
+          <ArrowLeft size={16} />
+          ← Back to Home
+        </Link>
+
+        <div className="mb-20">
+          <h1 className="font-display text-[clamp(3rem,6vw,5rem)] font-bold text-[var(--text-primary)] mb-6">
+            All Projects
+          </h1>
+          <p className="text-[var(--text-secondary)] text-xl max-w-2xl leading-relaxed">
+            Explore my work across AI, deep learning, and systems engineering
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-3 mb-16">
+          {ALL_CATEGORIES.map(category => (
+            <button
+              key={category}
+              onClick={() => setActiveTab(category)}
+              className={`font-mono text-xs uppercase tracking-widest px-6 py-3 border transition-all duration-300 ${
+                activeTab === category 
+                  ? 'border-[var(--accent-warm)] bg-[var(--accent-warm)]/10 text-[var(--accent-warm)]' 
+                  : 'border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--text-secondary)]'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {sortedProjects.map((project) => (
+            <div 
+              key={project.id} 
+              className={`group flex flex-col p-8 bg-[#0a0a0c] border border-[var(--border-subtle)] hover:border-[var(--accent-warm)] transition-colors duration-500`}
+            >
+              <div className="flex justify-between items-start mb-6">
+                <div className={`font-mono text-[10px] uppercase tracking-widest px-3 py-1 bg-[#050505] border border-[var(--border-subtle)] ${project.accent === 'warm' ? 'text-[var(--accent-warm)]' : 'text-[var(--accent-cool)]'}`}>
+                  {project.categories[0]}
+                </div>
+                {project.featured && (
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent-warm)] animate-pulse" />
+                )}
+              </div>
+
+              <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-4 group-hover:text-[var(--accent-warm)] transition-colors">
+                {project.title}
+              </h3>
+              
+              <p className="text-[var(--text-secondary)] leading-relaxed mb-8 flex-grow">
+                {project.longDescription}
+              </p>
+
+              <div className="space-y-8">
+                {project.metrics && project.metrics.length > 0 && (
+                  <div className="flex flex-wrap gap-6 pt-6 border-t border-[var(--border-subtle)]">
+                    {project.metrics.map((metric, i) => (
+                      <div key={i} className="flex flex-col">
+                        <span className={`font-display text-xl font-bold ${project.accent === 'warm' ? 'text-[var(--accent-warm)] text-glow-warm' : 'text-[var(--accent-cool)] text-glow-cool'}`}>
+                          {metric.value}
+                        </span>
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">
+                          {metric.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div className="flex flex-wrap gap-2 pt-6 border-t border-[var(--border-subtle)]">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="font-mono text-[10px] text-[var(--text-secondary)] bg-[#111] px-2 py-1">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-4 pt-6">
+                  {project.githubUrl && project.githubUrl !== '#' && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-warm)] transition-colors"
+                    >
+                      <Github size={14} /> Code
+                    </a>
+                  )}
+                  {project.demoUrl && project.demoUrl !== '#' && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-warm)] transition-colors"
+                    >
+                      <ExternalLink size={14} /> Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
