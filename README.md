@@ -10,5 +10,5 @@ Personal portfolio website built with React, TypeScript, Vite, and TailwindCSS.
 - Wouter routing
 
 ## Live Site
-[imranali.vercel.app](https://imranali.vercel.app) ← update after deployment
 
+🔗 [imranali-portfolio.vercel.app](https://imranali-portfolio.vercel.app/)
