@@ -15,6 +15,7 @@ export default function Projects() {
     if (!sectionRef.current) return;
     
     const ctx = gsap.context(() => {
+      gsap.set('.project-item', { opacity: 1 });
       gsap.from('.project-item', {
         y: 100,
         opacity: 0,
@@ -23,7 +24,8 @@ export default function Projects() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 70%',
+          start: 'top 85%',
+          once: true,
         }
       });
     }, sectionRef);
@@ -44,53 +46,73 @@ export default function Projects() {
           </h2>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-20">
           {featuredProjects.map((project, index) => (
-            <div key={project.id} className="project-item group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-[var(--border-subtle)] pt-12">
-              <div className="lg:col-span-1">
-                <span className="font-mono text-xl text-[var(--text-secondary)] font-light">0{index + 1}</span>
-              </div>
-              
-              <div className="lg:col-span-5">
-                <h3 className="font-display text-2xl lg:text-3xl font-bold mb-4 group-hover:text-[var(--accent-warm)] transition-colors">
-                  {project.title}
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="font-mono text-[10px] uppercase tracking-wider px-3 py-1 bg-[#0a0a0a] border border-[var(--border-subtle)] text-[var(--text-secondary)] rounded-sm">
-                      {tag}
-                    </span>
-                  ))}
+            <div key={project.id} className="project-item group border-t border-[var(--border-subtle)] pt-12">
+              {/* Top row: number + title + tags */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8 items-start">
+                <div className="lg:col-span-1">
+                  <span className="font-mono text-xl text-[var(--text-secondary)] font-light">0{index + 1}</span>
+                </div>
+                <div className="lg:col-span-11">
+                  <h3 className="font-display text-2xl lg:text-3xl font-bold mb-4 group-hover:text-[var(--accent-warm)] transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="font-mono text-[10px] uppercase tracking-wider px-3 py-1 bg-[#0a0a0a] border border-[var(--border-subtle)] text-[var(--text-secondary)] rounded-sm">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-6 flex flex-col items-start lg:items-end lg:text-right">
-                <p className="text-[var(--text-secondary)] leading-relaxed mb-8 max-w-[500px]">
-                  {project.description}
-                </p>
-                
-                {project.metrics && project.metrics.length > 0 && (
-                  <div className="flex flex-wrap gap-6 mb-8 lg:justify-end">
-                    {project.metrics.map((metric, i) => (
-                      <div key={i} className="flex flex-col items-start lg:items-end">
-                        <span className={`font-display text-3xl font-bold ${project.accent === 'warm' ? 'text-[var(--accent-warm)] text-glow-warm' : 'text-[var(--accent-cool)] text-glow-cool'}`}>
-                          {metric.value}
-                        </span>
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">{metric.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
+              {/* Bottom row: image + description/metrics/link */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                {/* Image preview */}
+                <div className="lg:col-span-6 relative overflow-hidden rounded-sm bg-[#050508] h-56">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/60 to-transparent" />
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-[2px] opacity-70"
+                    style={{ background: project.accent === 'warm' ? 'var(--accent-warm)' : 'var(--accent-cool)' }}
+                  />
+                </div>
 
-                <a
-                  href={project.demoUrl && project.demoUrl !== '#' ? project.demoUrl : project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-warm)] transition-colors border-b border-transparent hover:border-[var(--accent-warm)] pb-1"
-                >
-                  {project.demoUrl && project.demoUrl !== '#' ? 'View Demo' : 'View on GitHub'}
-                  <ArrowUpRight size={16} />
-                </a>
+                {/* Description + metrics + link */}
+                <div className="lg:col-span-6 flex flex-col items-start lg:items-end lg:text-right">
+                  <p className="text-[var(--text-secondary)] leading-relaxed mb-8 max-w-[480px]">
+                    {project.description}
+                  </p>
+
+                  {project.metrics && project.metrics.length > 0 && (
+                    <div className="flex flex-wrap gap-6 mb-8 lg:justify-end">
+                      {project.metrics.map((metric, i) => (
+                        <div key={i} className="flex flex-col items-start lg:items-end">
+                          <span className={`font-display text-3xl font-bold ${project.accent === 'warm' ? 'text-[var(--accent-warm)] text-glow-warm' : 'text-[var(--accent-cool)] text-glow-cool'}`}>
+                            {metric.value}
+                          </span>
+                          <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-secondary)]">{metric.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <a
+                    href={project.demoUrl && project.demoUrl !== '#' ? project.demoUrl : project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-[var(--text-primary)] hover:text-[var(--accent-warm)] transition-colors border-b border-transparent hover:border-[var(--accent-warm)] pb-1"
+                  >
+                    {project.demoUrl && project.demoUrl !== '#' ? 'View Demo' : 'View on GitHub'}
+                    <ArrowUpRight size={16} />
+                  </a>
+                </div>
               </div>
             </div>
           ))}

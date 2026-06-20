@@ -120,13 +120,15 @@ export default function TechLogos() {
   useEffect(() => {
     if (!sectionRef.current) return;
     const ctx = gsap.context(() => {
+      gsap.set('.tech-category', { opacity: 1 });
+      gsap.set('.tech-card', { opacity: 1 });
       gsap.from('.tech-category', {
         y: 40, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', once: true },
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 85%', once: true },
       });
       gsap.from('.tech-card', {
         scale: 0.88, opacity: 0, duration: 0.55, stagger: 0.04, ease: 'back.out(1.4)',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', once: true },
       });
     }, sectionRef);
     return () => ctx.revert();

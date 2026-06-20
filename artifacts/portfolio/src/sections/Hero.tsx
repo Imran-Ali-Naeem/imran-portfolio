@@ -9,18 +9,18 @@ gsap.registerPlugin(ScrollTrigger);
 // ── Terminal ──────────────────────────────────────────────────────────────────
 
 const TERMINAL_LINES = [
-  { text: '> initializing profile...',           warm: false, cool: false },
-  { text: '> status: OPEN TO WORK',              warm: true,  cool: false },
-  { text: '> roles: [AI / ML Engineer]',         warm: false, cool: false },
-  { text: '> type: full-time + freelance',       warm: false, cool: false },
-  { text: '> location: remote / hybrid',         warm: false, cool: false },
-  { text: '> ping: imranalinaeem3397@gmail.com', warm: false, cool: true  },
+  { text: '> initializing profile...', warm: false, cool: false },
+  { text: '> status: OPEN TO WORK', warm: true, cool: false },
+  { text: '> roles: [AI Engineer / Backend Developer]', warm: false, cool: false },
+  { text: '> type: full-time + contract', warm: false, cool: false },
+  { text: '> location: remote / hybrid', warm: false, cool: false },
+  { text: '> ping: imranalinaeem3397@gmail.com', warm: false, cool: true },
 ];
 
 function TerminalWidget() {
   const [doneLines, setDoneLines] = useState<typeof TERMINAL_LINES>([]);
-  const [typing, setTyping]       = useState('');
-  const [cursorOn, setCursorOn]   = useState(true);
+  const [typing, setTyping] = useState('');
+  const [cursorOn, setCursorOn] = useState(true);
   const alive = useRef(true);
 
   useEffect(() => {
@@ -61,8 +61,8 @@ function TerminalWidget() {
 
   const lineClass = (warm: boolean, cool: boolean) =>
     warm ? 'text-[var(--accent-warm)] font-bold'
-    : cool ? 'text-[var(--accent-cool)]'
-    : 'text-[var(--text-secondary)]';
+      : cool ? 'text-[var(--accent-cool)]'
+        : 'text-[var(--text-secondary)]';
 
   const cursor = (
     <span
@@ -141,11 +141,11 @@ function TerminalWidget() {
 const WORDS = [
   { text: 'Think.', color: '#f8f8f8' },
   { text: 'Build.', color: '#F59E0B' },
-  { text: 'Ship.',  color: '#2DD4BF' },
+  { text: 'Ship.', color: '#2DD4BF' },
 ];
 
 function TaglineLoop() {
-  const [shown, setShown]   = useState(0);
+  const [shown, setShown] = useState(0);
   const [fading, setFading] = useState(false);
   const alive = useRef(true);
 
@@ -207,13 +207,13 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.15 });
-      tl.from('.hero-eyebrow',  { opacity: 0, x: -20, duration: 0.6, ease: 'power3.out' })
-        .from('.hero-name',     { opacity: 0, y: 20,  duration: 0.8, ease: 'power4.out' }, '-=0.4')
-        .from('.hero-desc',     { opacity: 0, y: 16,  duration: 0.6, ease: 'power3.out' }, '-=0.5')
-        .from('.hero-tagline',  { opacity: 0, y: 16,  duration: 0.5, ease: 'power3.out' }, '-=0.4')
-        .from('.hero-meta',     { opacity: 0, y: 16,  duration: 0.5, ease: 'power3.out', stagger: 0.08 }, '-=0.3')
-        .from('.hero-links',    { opacity: 0, y: 16,  duration: 0.5, ease: 'power3.out' }, '-=0.3')
-        .from('.hero-terminal', { opacity: 0, x: 32,  duration: 1.0, ease: 'power3.out' }, '-=1.0');
+      tl.from('.hero-eyebrow', { opacity: 0, x: -20, duration: 0.6, ease: 'power3.out' })
+        .from('.hero-name', { opacity: 0, y: 20, duration: 0.8, ease: 'power4.out' }, '-=0.4')
+        .from('.hero-desc', { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, '-=0.5')
+        .from('.hero-tagline', { opacity: 0, y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.4')
+        .from('.hero-meta', { opacity: 0, y: 16, duration: 0.5, ease: 'power3.out', stagger: 0.08 }, '-=0.3')
+        .from('.hero-links', { opacity: 0, y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+        .from('.hero-terminal', { opacity: 0, x: 32, duration: 1.0, ease: 'power3.out' }, '-=1.0');
 
       gsap.to(contentRef.current, {
         y: '20%',
@@ -252,89 +252,89 @@ export default function Hero() {
 
       {/* ── Content grid — flex-1 centers it between nav padding and bottom ── */}
       <div className="relative z-10 flex-1 flex items-center">
-      <div
-        ref={contentRef}
-        className="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center"
-      >
-        {/* ── LEFT ── */}
-        <div className="flex flex-col">
-          <div className="hero-eyebrow font-mono text-[var(--accent-warm)] text-[10px] sm:text-xs tracking-widest uppercase mb-3 sm:mb-4 flex items-center gap-3">
-            <span className="w-8 sm:w-10 h-px bg-[var(--accent-warm)] opacity-50" />
-            AI Engineer / Machine Learning
+        <div
+          ref={contentRef}
+          className="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center"
+        >
+          {/* ── LEFT ── */}
+          <div className="flex flex-col">
+            <div className="hero-eyebrow font-mono text-[var(--accent-warm)] text-[10px] sm:text-xs tracking-widest uppercase mb-3 sm:mb-4 flex items-center gap-3">
+              <span className="w-8 sm:w-10 h-px bg-[var(--accent-warm)] opacity-50" />
+              AI Engineer / Backend Developer
+            </div>
+
+            <h1
+              className="hero-name font-display font-bold leading-[0.9] tracking-tighter mb-3 sm:mb-4"
+              style={{ fontSize: 'clamp(3rem, 10vw, 6rem)' }}
+            >
+              <span className="block text-[var(--text-primary)]">Imran</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-warm)] via-[#f3d399] to-[var(--text-primary)]">
+                Ali.
+              </span>
+            </h1>
+
+            <p
+              className="hero-desc text-[var(--text-secondary)] max-w-[480px] leading-relaxed mb-3 sm:mb-4 border-l-2 border-[var(--border-subtle)] pl-4 sm:pl-5"
+              style={{ fontSize: 'clamp(0.82rem, 1.2vw, 1rem)' }}
+            >
+              Building precision AI systems—from clinical RAG pipelines to diffusion models trained from scratch. Transforming theoretical research into production-ready infrastructure.
+            </p>
+
+            {/* fix #3: tagline visible on mobile (no hidden class) */}
+            <div className="hero-tagline mb-3 sm:mb-4">
+              <TaglineLoop />
+            </div>
+
+            <div
+              className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4 sm:mb-5 font-mono text-[var(--text-secondary)]"
+              style={{ fontSize: '0.85rem', opacity: 0.85, letterSpacing: '0.02em' }}
+            >
+              <span className="hero-meta flex items-center gap-2">
+                <MapPin size={13} style={{ color: '#F59E0B', flexShrink: 0 }} />
+                Faisalabad, Pakistan
+              </span>
+              <span className="hero-meta flex items-center gap-2">
+                <Mail size={13} style={{ color: '#F59E0B', flexShrink: 0 }} />
+                imranalinaeem3397@gmail.com
+              </span>
+              <span className="hero-meta flex items-center gap-2">
+                <Phone size={13} style={{ color: '#F59E0B', flexShrink: 0 }} />
+                +92 3078546373
+              </span>
+            </div>
+
+            <div className="hero-links flex flex-wrap gap-2 sm:gap-3">
+              <a
+                href="https://www.linkedin.com/in/imran-ali-naeem/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-[var(--text-primary)] text-black font-display font-semibold tracking-wide hover:bg-[var(--accent-warm)] transition-colors rounded-sm text-xs sm:text-sm"
+              >
+                <Linkedin size={13} /> LinkedIn
+              </a>
+              <a
+                href="https://github.com/Imran-Ali-Naeem"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-[var(--border-subtle)] text-[var(--text-primary)] font-display font-semibold tracking-wide hover:border-[var(--accent-cool)] hover:text-[var(--accent-cool)] transition-colors rounded-sm bg-[#050505]/50 text-xs sm:text-sm"
+              >
+                <Github size={13} /> GitHub
+              </a>
+              <a
+                href="/imran%20ali.pdf"
+                download="imran ali.pdf"
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-[#F59E0B] text-[#F59E0B] font-display font-semibold tracking-wide hover:bg-[#F59E0B]/10 transition-colors rounded-sm text-xs sm:text-sm"
+              >
+                <Download size={13} /> Resume
+              </a>
+            </div>
           </div>
 
-          <h1
-            className="hero-name font-display font-bold leading-[0.9] tracking-tighter mb-3 sm:mb-4"
-            style={{ fontSize: 'clamp(3rem, 10vw, 6rem)' }}
-          >
-            <span className="block text-[var(--text-primary)]">Imran</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-warm)] via-[#f3d399] to-[var(--text-primary)]">
-              Ali.
-            </span>
-          </h1>
-
-          <p
-            className="hero-desc text-[var(--text-secondary)] max-w-[480px] leading-relaxed mb-3 sm:mb-4 border-l-2 border-[var(--border-subtle)] pl-4 sm:pl-5"
-            style={{ fontSize: 'clamp(0.82rem, 1.2vw, 1rem)' }}
-          >
-            Building precision AI systems—from clinical RAG pipelines to diffusion models trained from scratch. Transforming theoretical research into production-ready infrastructure.
-          </p>
-
-          {/* fix #3: tagline visible on mobile (no hidden class) */}
-          <div className="hero-tagline mb-3 sm:mb-4">
-            <TaglineLoop />
-          </div>
-
-          <div
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4 sm:mb-5 font-mono text-[var(--text-secondary)]"
-            style={{ fontSize: '0.85rem', opacity: 0.85, letterSpacing: '0.02em' }}
-          >
-            <span className="hero-meta flex items-center gap-2">
-              <MapPin size={13} style={{ color: '#F59E0B', flexShrink: 0 }} />
-              Faisalabad, Pakistan
-            </span>
-            <span className="hero-meta flex items-center gap-2">
-              <Mail size={13} style={{ color: '#F59E0B', flexShrink: 0 }} />
-              imranalinaeem3397@gmail.com
-            </span>
-            <span className="hero-meta flex items-center gap-2">
-              <Phone size={13} style={{ color: '#F59E0B', flexShrink: 0 }} />
-              +92 3078546373
-            </span>
-          </div>
-
-          <div className="hero-links flex flex-wrap gap-2 sm:gap-3">
-            <a
-              href="https://www.linkedin.com/in/imran-ali-naeem/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-[var(--text-primary)] text-black font-display font-semibold tracking-wide hover:bg-[var(--accent-warm)] transition-colors rounded-sm text-xs sm:text-sm"
-            >
-              <Linkedin size={13} /> LinkedIn
-            </a>
-            <a
-              href="https://github.com/Imran-Ali-Naeem"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-[var(--border-subtle)] text-[var(--text-primary)] font-display font-semibold tracking-wide hover:border-[var(--accent-cool)] hover:text-[var(--accent-cool)] transition-colors rounded-sm bg-[#050505]/50 text-xs sm:text-sm"
-            >
-              <Github size={13} /> GitHub
-            </a>
-            <a
-              href="/resume.pdf"
-              download="Imran_Ali_Resume.pdf"
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 border border-[#F59E0B] text-[#F59E0B] font-display font-semibold tracking-wide hover:bg-[#F59E0B]/10 transition-colors rounded-sm text-xs sm:text-sm"
-            >
-              <Download size={13} /> Resume
-            </a>
+          {/* ── RIGHT — terminal ── */}
+          <div className="hero-terminal mt-5 lg:mt-0 max-h-[260px] lg:max-h-none overflow-hidden lg:overflow-visible">
+            <TerminalWidget />
           </div>
         </div>
-
-        {/* ── RIGHT — terminal ── */}
-        <div className="hero-terminal mt-5 lg:mt-0 max-h-[260px] lg:max-h-none overflow-hidden lg:overflow-visible">
-          <TerminalWidget />
-        </div>
-      </div>
       </div>
 
       {/* ── Scroll indicator — pinned to bottom, never creates a gap ── */}

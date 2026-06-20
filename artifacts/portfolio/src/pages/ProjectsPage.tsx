@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'wouter';
 import { ArrowLeft, ArrowUpRight, Github, ExternalLink } from 'lucide-react';
+import gsap from 'gsap';
 import { projects, ALL_CATEGORIES } from '../data/projects';
 
 export default function ProjectsPage() {
   const [activeTab, setActiveTab] = useState('All');
+  const pageRef = useRef<HTMLDivElement>(null);
 
-  const filteredProjects = activeTab === 'All' 
-    ? projects 
+  const filteredProjects = activeTab === 'All'
+    ? projects
     : projects.filter(p => p.categories.includes(activeTab));
 
   // Sort so featured show first
@@ -17,17 +19,32 @@ export default function ProjectsPage() {
     return a.id - b.id;
   });
 
+  useEffect(() => {
+    if (!pageRef.current) return;
+    const ctx = gsap.context(() => {
+      // Set initial state for all cards to avoid flash
+      gsap.set('.project-page-card', { opacity: 0, y: 40 });
+      gsap.to('.project-page-card', {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out',
+      });
+    }, pageRef);
+    return () => ctx.revert();
+  }, [activeTab]);
+
   return (
-    <div className="min-h-screen bg-[#030303] pt-32 pb-24 px-8 lg:px-16">
+    <div ref={pageRef} className="min-h-screen bg-[#030303] pt-32 pb-24 px-8 lg:px-16">
       <div className="max-w-[1200px] mx-auto">
-        <Link 
+        <Link
           href="/"
           className="inline-flex items-center gap-2 font-mono text-sm text-[var(--text-secondary)] hover:text-[var(--accent-warm)] transition-colors mb-16"
         >
           <ArrowLeft size={16} />
-          ← Back to Home
+          Back to Home
         </Link>
-
         <div className="mb-20">
           <h1 className="font-display text-[clamp(3rem,6vw,5rem)] font-bold text-[var(--text-primary)] mb-6">
             All Projects
@@ -42,11 +59,10 @@ export default function ProjectsPage() {
             <button
               key={category}
               onClick={() => setActiveTab(category)}
-              className={`font-mono text-xs uppercase tracking-widest px-6 py-3 border transition-all duration-300 ${
-                activeTab === category 
-                  ? 'border-[var(--accent-warm)] bg-[var(--accent-warm)]/10 text-[var(--accent-warm)]' 
-                  : 'border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--text-secondary)]'
-              }`}
+              className={`font-mono text-xs uppercase tracking-widest px-6 py-3 border transition-all duration-300 ${activeTab === category
+                ? 'border-[var(--accent-warm)] bg-[var(--accent-warm)]/10 text-[var(--accent-warm)]'
+                : 'border-[var(--border-subtle)] text-[var(--text-secondary)] hover:border-[var(--text-secondary)]'
+                }`}
             >
               {category}
             </button>
@@ -55,11 +71,25 @@ export default function ProjectsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {sortedProjects.map((project) => (
-            <div 
-              key={project.id} 
-              className={`group flex flex-col p-8 bg-[#0a0a0c] border border-[var(--border-subtle)] hover:border-[var(--accent-warm)] transition-colors duration-500`}
+            <div
+              key={project.id}
+              className={`project-page-card group flex flex-col bg-[#0a0a0c] border border-[var(--border-subtle)] hover:border-[var(--accent-warm)] transition-colors duration-500 overflow-hidden`}
             >
-              <div className="flex justify-between items-start mb-6">
+              {/* Project image banner */}
+              <div className="relative h-44 overflow-hidden bg-[#050508]">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c10] to-transparent" />
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-1 opacity-60"
+                  style={{ background: project.accent === 'warm' ? 'var(--accent-warm)' : 'var(--accent-cool)' }}
+                />
+              </div>
+              <div className="flex flex-col flex-grow p-8">
+                <div className="flex justify-between items-start mb-6">
                 <div className={`font-mono text-[10px] uppercase tracking-widest px-3 py-1 bg-[#050505] border border-[var(--border-subtle)] ${project.accent === 'warm' ? 'text-[var(--accent-warm)]' : 'text-[var(--accent-cool)]'}`}>
                   {project.categories[0]}
                 </div>
@@ -71,7 +101,7 @@ export default function ProjectsPage() {
               <h3 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-4 group-hover:text-[var(--accent-warm)] transition-colors">
                 {project.title}
               </h3>
-              
+
               <p className="text-[var(--text-secondary)] leading-relaxed mb-8 flex-grow">
                 {project.longDescription}
               </p>
@@ -122,6 +152,7 @@ export default function ProjectsPage() {
                     </a>
                   )}
                 </div>
+              </div>
               </div>
             </div>
           ))}

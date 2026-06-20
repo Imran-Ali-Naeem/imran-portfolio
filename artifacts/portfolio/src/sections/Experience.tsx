@@ -11,6 +11,8 @@ export default function Experience() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
+      gsap.set('.timeline-content', { opacity: 1 });
+      gsap.set('.timeline-line', { scaleY: 1 });
       gsap.from('.timeline-content', {
         x: -50,
         opacity: 0,
@@ -18,7 +20,7 @@ export default function Experience() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 70%',
+          start: 'top 85%',
           once: true,
         }
       });
@@ -30,7 +32,7 @@ export default function Experience() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 70%',
+          start: 'top 85%',
           once: true,
         }
       });
@@ -57,35 +59,16 @@ export default function Experience() {
           {/* Vertical Line */}
           <div className="timeline-line absolute left-0 top-2 bottom-0 w-[2px] bg-gradient-to-b from-[var(--accent-warm)] via-[var(--accent-cool)] to-transparent opacity-30" />
 
-          <div className="timeline-content relative pl-12 pb-16">
-            {/* Dot */}
-            <div className="absolute left-[-5px] top-3 w-3 h-3 bg-[#050505] border-2 border-[var(--accent-cool)] rounded-full border-glow-cool" />
-            
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-4 gap-2">
-              <h3 className="font-display text-3xl font-bold text-[var(--text-primary)]">BSc Computer Science</h3>
-              <span className="font-mono text-sm text-[var(--text-secondary)] tracking-widest uppercase">Aug 2022 — Jun 2026</span>
-            </div>
-            
-            <p className="font-mono text-[var(--accent-cool)] tracking-widest uppercase mb-8">FAST NUCES CFD Campus, Pakistan</p>
-            
-            <ul className="space-y-6">
-              <li className="flex items-start gap-4 text-[var(--text-secondary)] leading-relaxed">
-                <span className="text-[var(--accent-cool)] font-mono mt-1 opacity-70">{'>'}</span>
-                Relevant Courses: Deep Learning, NLP, Generative AI, Web Programming, Information Security, Software Engineering
-              </li>
-            </ul>
-          </div>
-          
           <div className="timeline-content relative pl-12">
             <div className="absolute left-[-5px] top-3 w-3 h-3 bg-[#050505] border-2 border-[var(--accent-warm)] rounded-full border-glow-warm" />
-            
+
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-4 gap-2">
               <h3 className="font-display text-3xl font-bold text-[var(--text-primary)]">Data Analyst Intern</h3>
               <span className="font-mono text-sm text-[var(--text-secondary)] tracking-widest uppercase">Jun 2025 — Aug 2025</span>
             </div>
-            
+
             <p className="font-mono text-[var(--accent-warm)] tracking-widest uppercase mb-8">Brickclay</p>
-            
+
             <ul className="space-y-6">
               {[
                 'Built an end-to-end ETL pipeline to ingest and transform structured data into SQL Server for downstream analytics.',

@@ -2,23 +2,32 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const navLinks = [
-  { label: 'Work',       href: '#work'       },
-  { label: 'Expertise',  href: '#expertise'  },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact',    href: '#contact'    },
+  { label: 'Work', href: '/#work' },
+  { label: 'Expertise', href: '/#expertise' },
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 function smoothScrollTo(href: string, onDone?: () => void) {
-  const target = document.querySelector(href);
-  if (target) target.scrollIntoView({ behavior: 'smooth' });
+  if (href.startsWith('/#')) {
+    const sectionId = href.replace('/#', '');
+    if (window.location.pathname !== '/') {
+      sessionStorage.setItem('scrollTo', sectionId);
+      window.location.href = '/';
+      onDone?.();
+      return;
+    }
+    const target = document.querySelector('#' + sectionId);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
   onDone?.();
 }
 
 export default function Navigation() {
-  const navRef     = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   const lastScroll = useRef(0);
-  const [menuOpen,   setMenuOpen]   = useState(false);
-  const [scrolled,   setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -47,15 +56,24 @@ export default function Navigation() {
   }, []);
 
   const linkStyle: React.CSSProperties = {
-    fontSize:      '0.78rem',
+    fontSize: '0.78rem',
     letterSpacing: '0.12em',
-    color:         'rgba(226, 232, 240, 0.8)',
-    fontWeight:    500,
-    transition:    'color 0.25s ease',
+    color: 'rgba(226, 232, 240, 0.8)',
+    fontWeight: 500,
+    transition: 'color 0.25s ease',
     textDecoration: 'none',
     textTransform: 'uppercase',
-    fontFamily:    'var(--font-mono, monospace)',
+    fontFamily: 'var(--font-mono, monospace)',
   };
+
+  useEffect(() => {
+    const scrollToSection = sessionStorage.getItem('scrollTo');
+    if (scrollToSection) {
+      sessionStorage.removeItem('scrollTo');
+      const target = document.querySelector('#' + scrollToSection);
+      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 800);
+    }
+  }, []);
 
   return (
     <>
@@ -63,8 +81,8 @@ export default function Navigation() {
         ref={navRef}
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-300"
         style={{
-          padding:      '1.8rem 3rem',
-          background:   'transparent',
+          padding: '1.8rem 3rem',
+          background: 'transparent',
           borderBottom: scrolled
             ? '1px solid rgba(245, 158, 11, 0.15)'
             : '1px solid transparent',
@@ -72,15 +90,15 @@ export default function Navigation() {
       >
         {/* Logo */}
         <a
-          href="#"
+          href="/"
           style={{
-            color:         '#ffffff',
-            fontSize:      '1.3rem',
-            fontWeight:    700,
+            color: '#ffffff',
+            fontSize: '1.3rem',
+            fontWeight: 700,
             letterSpacing: '0.05em',
-            fontFamily:    'var(--font-display, sans-serif)',
+            fontFamily: 'var(--font-display, sans-serif)',
             textDecoration: 'none',
-            transition:    'color 0.25s ease',
+            transition: 'color 0.25s ease',
             zIndex: 10,
           }}
           onMouseEnter={e => (e.currentTarget.style.color = '#F59E0B')}
@@ -115,7 +133,7 @@ export default function Navigation() {
           aria-label="Open menu"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <line x1="4" y1="6"  x2="20" y2="6"  />
+            <line x1="4" y1="6" x2="20" y2="6" />
             <line x1="4" y1="12" x2="20" y2="12" />
             <line x1="4" y1="18" x2="20" y2="18" />
           </svg>
@@ -127,8 +145,8 @@ export default function Navigation() {
         <div
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center md:hidden"
           style={{
-            background:           'rgba(5, 10, 14, 0.97)',
-            backdropFilter:       'blur(12px)',
+            background: 'rgba(5, 10, 14, 0.97)',
+            backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
           }}
         >
@@ -150,17 +168,17 @@ export default function Navigation() {
                 <a
                   href={link.href}
                   style={{
-                    display:       'block',
-                    fontSize:      '1.5rem',
-                    color:         '#e2e8f0',
-                    padding:       '1rem 0',
+                    display: 'block',
+                    fontSize: '1.5rem',
+                    color: '#e2e8f0',
+                    padding: '1rem 0',
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    fontFamily:    'var(--font-mono, monospace)',
-                    fontWeight:    500,
+                    fontFamily: 'var(--font-mono, monospace)',
+                    fontWeight: 500,
                     textDecoration: 'none',
-                    borderBottom:  '1px solid rgba(255,255,255,0.05)',
-                    transition:    'color 0.25s ease',
+                    borderBottom: '1px solid rgba(255,255,255,0.05)',
+                    transition: 'color 0.25s ease',
                   }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#F59E0B')}
                   onMouseLeave={e => (e.currentTarget.style.color = '#e2e8f0')}

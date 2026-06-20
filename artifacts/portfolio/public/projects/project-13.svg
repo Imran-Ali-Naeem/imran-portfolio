@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg13" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#001a1a"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+    <filter id="glow13"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg13)"/>
+  <!-- 5x5 puzzle grid centered -->
+  <g transform="translate(228, 75)">
+    <!-- Row 0 -->
+    <rect x="0" y="0" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5" filter="url(#glow13)"/>
+    <text x="34" y="41" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">1</text>
+    <rect x="76" y="0" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="110" y="41" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">2</text>
+    <rect x="152" y="0" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="186" y="41" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">3</text>
+    <rect x="228" y="0" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="262" y="41" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">4</text>
+    <rect x="304" y="0" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="338" y="41" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">5</text>
+    <!-- Row 1 -->
+    <rect x="0" y="76" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="34" y="117" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">6</text>
+    <rect x="76" y="76" width="68" height="68" rx="6" fill="#06b6d430" stroke="#06b6d4" stroke-width="2" filter="url(#glow13)"/>
+    <text x="110" y="117" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">7</text>
+    <rect x="152" y="76" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="186" y="117" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">8</text>
+    <rect x="228" y="76" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="262" y="117" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">9</text>
+    <rect x="304" y="76" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="338" y="117" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">10</text>
+    <!-- Row 2 -->
+    <rect x="0" y="152" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="34" y="193" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">11</text>
+    <rect x="76" y="152" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="110" y="193" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">12</text>
+    <!-- Empty slot -->
+    <rect x="152" y="152" width="68" height="68" rx="6" fill="#030303" stroke="#06b6d440" stroke-width="1" stroke-dasharray="4,2"/>
+    <rect x="228" y="152" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="262" y="193" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d4">13</text>
+    <rect x="304" y="152" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="338" y="193" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">14</text>
+    <!-- Row 3 -->
+    <rect x="0" y="228" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d480" stroke-width="1"/>
+    <text x="34" y="269" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d460">15</text>
+    <rect x="76" y="228" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d480" stroke-width="1"/>
+    <text x="110" y="269" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">16</text>
+    <rect x="152" y="228" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d480" stroke-width="1"/>
+    <text x="186" y="269" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d460">17</text>
+    <rect x="228" y="228" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d480" stroke-width="1"/>
+    <text x="262" y="269" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d480">18</text>
+    <rect x="304" y="228" width="68" height="68" rx="6" fill="#0a1a1a" stroke="#06b6d480" stroke-width="1"/>
+    <text x="338" y="269" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#06b6d460">19</text>
+  </g>
+  <!-- Slide arrow for empty slot -->
+  <g filter="url(#glow13)" opacity="0.9">
+    <polygon points="380,205 365,220 395,220" fill="#f59e0b"/>
+    <polygon points="380,235 365,220 395,220" fill="#f59e0b" opacity="0.5"/>
+  </g>
+  <text x="400" y="418" text-anchor="middle" font-family="monospace" font-size="10" fill="#06b6d440">24 PUZZLE · SLIDING TILES · C++ GAME LOGIC</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg9" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#001a1a"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+    <filter id="glow9"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg9)"/>
+  <rect x="40" y="80" width="240" height="270" rx="6" fill="#0a0a0a" stroke="#06b6d430" stroke-width="1"/>
+  <rect x="40" y="80" width="240" height="26" rx="6" fill="#06b6d420"/>
+  <text x="54" y="97" font-family="monospace" font-size="11" fill="#06b6d4">pseudocode.txt</text>
+  <text x="54" y="135" font-family="monospace" font-size="10" fill="#06b6d480">INPUT n</text>
+  <text x="54" y="155" font-family="monospace" font-size="10" fill="#06b6d460">SET result = 1</text>
+  <text x="54" y="175" font-family="monospace" font-size="10" fill="#06b6d480">FOR i = 1 TO n DO</text>
+  <text x="68" y="195" font-family="monospace" font-size="10" fill="#06b6d460">result = result * i</text>
+  <text x="54" y="215" font-family="monospace" font-size="10" fill="#06b6d480">END FOR</text>
+  <text x="54" y="235" font-family="monospace" font-size="10" fill="#06b6d460">PRINT result</text>
+  <line x1="54" y1="252" x2="265" y2="252" stroke="#06b6d420" stroke-width="0.8"/>
+  <text x="54" y="272" font-family="monospace" font-size="10" fill="#06b6d440">READ arr[n]</text>
+  <text x="54" y="290" font-family="monospace" font-size="10" fill="#06b6d460">SORT arr ASC</text>
+  <text x="54" y="310" font-family="monospace" font-size="10" fill="#06b6d440">FOR each elem</text>
+  <text x="54" y="328" font-family="monospace" font-size="10" fill="#06b6d460">  PRINT elem</text>
+  <g filter="url(#glow9)">
+    <circle cx="400" cy="225" r="55" fill="none" stroke="#06b6d450" stroke-width="1.5"/>
+    <circle cx="400" cy="225" r="35" fill="none" stroke="#06b6d4" stroke-width="1"/>
+    <circle cx="400" cy="225" r="12" fill="#06b6d430" stroke="#06b6d4" stroke-width="1.5"/>
+    <line x1="354" y1="192" x2="388" y2="218" stroke="#06b6d460" stroke-width="1"/>
+    <line x1="400" y1="170" x2="400" y2="213" stroke="#06b6d460" stroke-width="1"/>
+    <line x1="446" y1="192" x2="412" y2="218" stroke="#06b6d460" stroke-width="1"/>
+    <line x1="455" y1="225" x2="412" y2="225" stroke="#06b6d460" stroke-width="1"/>
+    <line x1="446" y1="258" x2="412" y2="232" stroke="#06b6d460" stroke-width="1"/>
+    <line x1="354" y1="258" x2="388" y2="232" stroke="#06b6d460" stroke-width="1"/>
+    <line x1="345" y1="225" x2="388" y2="225" stroke="#06b6d460" stroke-width="1"/>
+    <text x="400" y="229" text-anchor="middle" font-family="monospace" font-size="9" fill="#06b6d4">GPT-2</text>
+  </g>
+  <rect x="510" y="80" width="250" height="270" rx="6" fill="#0a0a0a" stroke="#f59e0b30" stroke-width="1"/>
+  <rect x="510" y="80" width="250" height="26" rx="6" fill="#f59e0b20"/>
+  <text x="524" y="97" font-family="monospace" font-size="11" fill="#f59e0b">output.cpp</text>
+  <text x="524" y="135" font-family="monospace" font-size="10" fill="#f59e0b80">#include &lt;iostream&gt;</text>
+  <text x="524" y="155" font-family="monospace" font-size="10" fill="#f59e0b60">using namespace std;</text>
+  <text x="524" y="175" font-family="monospace" font-size="10" fill="#f59e0b80">int main() {</text>
+  <text x="538" y="195" font-family="monospace" font-size="10" fill="#f59e0b60">int n, res = 1;</text>
+  <text x="538" y="215" font-family="monospace" font-size="10" fill="#f59e0b80">cin &gt;&gt; n;</text>
+  <text x="538" y="235" font-family="monospace" font-size="10" fill="#f59e0b60">for(int i=1;i&lt;=n;i++)</text>
+  <text x="553" y="255" font-family="monospace" font-size="10" fill="#f59e0b80">res *= i;</text>
+  <text x="538" y="275" font-family="monospace" font-size="10" fill="#f59e0b60">cout &lt;&lt; res;</text>
+  <text x="524" y="295" font-family="monospace" font-size="10" fill="#f59e0b80">return 0;</text>
+  <text x="524" y="315" font-family="monospace" font-size="10" fill="#f59e0b60">}</text>
+  <line x1="280" y1="225" x2="343" y2="225" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="340,220 349,225 340,230" fill="#06b6d4"/>
+  <line x1="457" y1="225" x2="508" y2="225" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="505,220 514,225 505,230" fill="#f59e0b"/>
+  <text x="400" y="415" text-anchor="middle" font-family="monospace" font-size="10" fill="#06b6d440">GPT-2 + LoRA · SPoC DATASET · PSEUDOCODE TO C++</text>
+</svg>

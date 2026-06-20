@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg11" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#001a08"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+    <filter id="glow11"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg11)"/>
+  <!-- ER Table: Patients -->
+  <g filter="url(#glow11)">
+    <rect x="60" y="80" width="150" height="130" rx="4" fill="#0a120a" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="60" y="80" width="150" height="28" rx="4" fill="#22c55e25"/>
+    <text x="135" y="99" text-anchor="middle" font-family="monospace" font-size="11" fill="#22c55e">PATIENTS</text>
+    <line x1="60" y1="108" x2="210" y2="108" stroke="#22c55e30" stroke-width="0.8"/>
+    <text x="75" y="126" font-family="monospace" font-size="9" fill="#22c55e80">PK patient_id</text>
+    <text x="75" y="142" font-family="monospace" font-size="9" fill="#22c55e60">name</text>
+    <text x="75" y="158" font-family="monospace" font-size="9" fill="#22c55e60">dob</text>
+    <text x="75" y="174" font-family="monospace" font-size="9" fill="#22c55e60">blood_type</text>
+    <text x="75" y="190" font-family="monospace" font-size="9" fill="#22c55e60">contact</text>
+  </g>
+  <!-- ER Table: Doctors -->
+  <g filter="url(#glow11)">
+    <rect x="325" y="60" width="150" height="130" rx="4" fill="#0a120a" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="325" y="60" width="150" height="28" rx="4" fill="#22c55e25"/>
+    <text x="400" y="79" text-anchor="middle" font-family="monospace" font-size="11" fill="#22c55e">DOCTORS</text>
+    <line x1="325" y1="88" x2="475" y2="88" stroke="#22c55e30" stroke-width="0.8"/>
+    <text x="340" y="106" font-family="monospace" font-size="9" fill="#22c55e80">PK doctor_id</text>
+    <text x="340" y="122" font-family="monospace" font-size="9" fill="#22c55e60">name</text>
+    <text x="340" y="138" font-family="monospace" font-size="9" fill="#22c55e60">specialty</text>
+    <text x="340" y="154" font-family="monospace" font-size="9" fill="#22c55e60">department</text>
+    <text x="340" y="170" font-family="monospace" font-size="9" fill="#22c55e60">salary</text>
+  </g>
+  <!-- ER Table: Appointments -->
+  <g filter="url(#glow11)">
+    <rect x="325" y="240" width="150" height="130" rx="4" fill="#0a120a" stroke="#22c55e80" stroke-width="1"/>
+    <rect x="325" y="240" width="150" height="28" rx="4" fill="#22c55e15"/>
+    <text x="400" y="259" text-anchor="middle" font-family="monospace" font-size="11" fill="#22c55e80">APPOINTMENTS</text>
+    <line x1="325" y1="268" x2="475" y2="268" stroke="#22c55e20" stroke-width="0.8"/>
+    <text x="340" y="286" font-family="monospace" font-size="9" fill="#22c55e60">PK appt_id</text>
+    <text x="340" y="302" font-family="monospace" font-size="9" fill="#22c55e50">FK patient_id</text>
+    <text x="340" y="318" font-family="monospace" font-size="9" fill="#22c55e50">FK doctor_id</text>
+    <text x="340" y="334" font-family="monospace" font-size="9" fill="#22c55e50">date_time</text>
+    <text x="340" y="350" font-family="monospace" font-size="9" fill="#22c55e50">status</text>
+  </g>
+  <!-- ER Table: EHR -->
+  <g filter="url(#glow11)">
+    <rect x="590" y="150" width="150" height="130" rx="4" fill="#0a120a" stroke="#22c55e80" stroke-width="1"/>
+    <rect x="590" y="150" width="150" height="28" rx="4" fill="#22c55e15"/>
+    <text x="665" y="169" text-anchor="middle" font-family="monospace" font-size="11" fill="#22c55e80">EHR</text>
+    <line x1="590" y1="178" x2="740" y2="178" stroke="#22c55e20" stroke-width="0.8"/>
+    <text x="605" y="196" font-family="monospace" font-size="9" fill="#22c55e60">PK ehr_id</text>
+    <text x="605" y="212" font-family="monospace" font-size="9" fill="#22c55e50">FK patient_id</text>
+    <text x="605" y="228" font-family="monospace" font-size="9" fill="#22c55e50">diagnosis</text>
+    <text x="605" y="244" font-family="monospace" font-size="9" fill="#22c55e50">prescription</text>
+    <text x="605" y="260" font-family="monospace" font-size="9" fill="#22c55e50">date</text>
+  </g>
+  <!-- Relationship lines -->
+  <line x1="210" y1="145" x2="325" y2="125" stroke="#22c55e50" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <line x1="210" y1="145" x2="325" y2="305" stroke="#22c55e40" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="475" y1="125" x2="590" y2="215" stroke="#22c55e40" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="475" y1="305" x2="590" y2="215" stroke="#22c55e40" stroke-width="1" stroke-dasharray="5,3"/>
+  <!-- Medical cross -->
+  <g opacity="0.15" filter="url(#glow11)">
+    <rect x="730" y="60" width="14" height="42" rx="3" fill="#22c55e"/>
+    <rect x="716" y="74" width="42" height="14" rx="3" fill="#22c55e"/>
+  </g>
+  <text x="400" y="418" text-anchor="middle" font-family="monospace" font-size="10" fill="#22c55e40">C# .NET · ORACLE DB · HOSPITAL MANAGEMENT</text>
+</svg>

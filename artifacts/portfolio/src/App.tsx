@@ -1,17 +1,27 @@
 import { useEffect, useRef } from 'react';
-import { Switch, Route } from 'wouter';
+import { Switch, Route, useLocation } from 'wouter';
 import gsap from 'gsap';
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location]);
+  return null;
+}
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
+import Education from './sections/Education';
 import Projects from './sections/Projects';
-import TechLogos from './sections/TechLogos';
+
 import Expertise from './sections/Expertise';
 import Experience from './sections/Experience';
 import Achievements from './sections/Achievements';
 import Contact from './sections/Contact';
 import ProjectsPage from './pages/ProjectsPage';
+import CanvasCursor from './components/CanvasCursor';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,12 +71,15 @@ function App() {
           backgroundRepeat: 'repeat',
         }}
       />
+      <CanvasCursor />
       <Navigation />
+      <ScrollToTop />
       <Switch>
         <Route path="/">
           <Hero />
+          <Education />
           <Projects />
-          <TechLogos />
+
           <Expertise />
           <Experience />
           <Achievements />

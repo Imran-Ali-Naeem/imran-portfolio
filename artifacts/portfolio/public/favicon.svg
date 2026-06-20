@@ -1,3 +1,12 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e5a93d" />
+      <stop offset="100%" stop-color="#3dd1e5" />
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="#07070d" stroke="url(#grad)" stroke-width="16" />
+  <path d="M180 180 L100 256 L180 332" stroke="url(#grad)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M332 180 L412 256 L332 332" stroke="url(#grad)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M280 140 L232 372" stroke="url(#grad)" stroke-width="32" stroke-linecap="round" />
 </svg>

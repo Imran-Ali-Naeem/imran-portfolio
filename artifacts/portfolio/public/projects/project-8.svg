@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg8" cx="40%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#001a2e"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+    <filter id="glow8"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg8)"/>
+  <!-- 14x14 patch grid (showing subset) -->
+  <g transform="translate(150,80)">
+    <!-- Draw 7x7 visible patches -->
+    <script type="text/javascript"/>
+    <!-- Visible patches (25% = unmasked) -->
+    <rect x="0" y="0" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="42" y="0" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="84" y="0" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/> <!-- masked -->
+    <rect x="126" y="0" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="168" y="0" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="210" y="0" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="252" y="0" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    
+    <rect x="0" y="42" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="42" y="42" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="84" y="42" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="126" y="42" width="38" height="38" rx="2" fill="#06b6d430" stroke="#06b6d4" stroke-width="1.2" filter="url(#glow8)"/>
+    <rect x="168" y="42" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="210" y="42" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="252" y="42" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    
+    <rect x="0" y="84" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="42" y="84" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="84" y="84" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="126" y="84" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="168" y="84" width="38" height="38" rx="2" fill="#06b6d430" stroke="#06b6d4" stroke-width="1.2" filter="url(#glow8)"/>
+    <rect x="210" y="84" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="252" y="84" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    
+    <rect x="0" y="126" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="42" y="126" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="84" y="126" width="38" height="38" rx="2" fill="#06b6d430" stroke="#06b6d4" stroke-width="1.2" filter="url(#glow8)"/>
+    <rect x="126" y="126" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="168" y="126" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="210" y="126" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="252" y="126" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+
+    <rect x="0" y="168" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="42" y="168" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="84" y="168" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="126" y="168" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="168" y="168" width="38" height="38" rx="2" fill="#06b6d415" stroke="#06b6d440" stroke-width="0.8"/>
+    <rect x="210" y="168" width="38" height="38" rx="2" fill="#111" stroke="#06b6d420" stroke-width="0.8"/>
+    <rect x="252" y="168" width="38" height="38" rx="2" fill="#06b6d430" stroke="#06b6d4" stroke-width="1.2" filter="url(#glow8)"/>
+  </g>
+  <!-- ViT attention lines from center patch -->
+  <g filter="url(#glow8)" opacity="0.5">
+    <line x1="295" y1="203" x2="500" y2="180" stroke="#06b6d4" stroke-width="0.8"/>
+    <line x1="295" y1="203" x2="520" y2="220" stroke="#06b6d4" stroke-width="0.8"/>
+    <line x1="295" y1="203" x2="510" y2="260" stroke="#06b6d4" stroke-width="0.8"/>
+    <line x1="295" y1="203" x2="490" y2="300" stroke="#06b6d4" stroke-width="0.5"/>
+  </g>
+  <!-- Transformer block -->
+  <rect x="500" y="150" width="160" height="200" rx="6" fill="#06b6d408" stroke="#06b6d440" stroke-width="1" filter="url(#glow8)"/>
+  <rect x="520" y="170" width="120" height="30" rx="3" fill="#06b6d420" stroke="#06b6d4" stroke-width="0.8"/>
+  <rect x="520" y="215" width="120" height="30" rx="3" fill="#06b6d415" stroke="#06b6d430" stroke-width="0.8"/>
+  <rect x="520" y="260" width="120" height="30" rx="3" fill="#06b6d420" stroke="#06b6d4" stroke-width="0.8"/>
+  <rect x="520" y="305" width="120" height="25" rx="3" fill="#06b6d415" stroke="#06b6d430" stroke-width="0.8"/>
+  <!-- 75% mask label -->
+  <text x="680" y="390" text-anchor="middle" font-family="monospace" font-size="11" fill="#06b6d460">75% MASKED · ViT-BASE · SELF-SUPERVISED</text>
+</svg>

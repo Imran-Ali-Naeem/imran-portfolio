@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg12" cx="40%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a0d00"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+    <filter id="glow12"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg12)"/>
+  <!-- Root node -->
+  <circle cx="130" cy="225" r="22" fill="#f9730010" stroke="#f97300" stroke-width="2" filter="url(#glow12)"/>
+  <text x="130" y="229" text-anchor="middle" font-family="monospace" font-size="11" fill="#f97300">root</text>
+  <!-- Level 1 -->
+  <circle cx="260" cy="140" r="18" fill="#f9730010" stroke="#f97300cc" stroke-width="1.5" filter="url(#glow12)"/>
+  <text x="260" y="144" text-anchor="middle" font-family="monospace" font-size="10" fill="#f97300">'a'</text>
+  <circle cx="260" cy="310" r="18" fill="#f9730010" stroke="#f97300cc" stroke-width="1.5" filter="url(#glow12)"/>
+  <text x="260" y="314" text-anchor="middle" font-family="monospace" font-size="10" fill="#f97300">'b'</text>
+  <line x1="151" y1="213" x2="242" y2="148" stroke="#f97300a0" stroke-width="1.2"/>
+  <line x1="151" y1="237" x2="242" y2="302" stroke="#f97300a0" stroke-width="1.2"/>
+  <!-- Level 2 from 'a' -->
+  <circle cx="380" cy="80" r="16" fill="#f9730010" stroke="#f9730099" stroke-width="1.2" filter="url(#glow12)"/>
+  <text x="380" y="84" text-anchor="middle" font-family="monospace" font-size="10" fill="#f97300cc">'p'</text>
+  <circle cx="380" cy="150" r="16" fill="#f9730010" stroke="#f9730099" stroke-width="1.2" filter="url(#glow12)"/>
+  <text x="380" y="154" text-anchor="middle" font-family="monospace" font-size="10" fill="#f97300cc">'r'</text>
+  <line x1="277" y1="129" x2="364" y2="88" stroke="#f9730070" stroke-width="1"/>
+  <line x1="277" y1="142" x2="364" y2="152" stroke="#f9730070" stroke-width="1"/>
+  <!-- Level 2 from 'b' -->
+  <circle cx="380" cy="270" r="16" fill="#f9730010" stroke="#f9730099" stroke-width="1.2" filter="url(#glow12)"/>
+  <text x="380" y="274" text-anchor="middle" font-family="monospace" font-size="10" fill="#f97300cc">'e'</text>
+  <circle cx="380" cy="350" r="16" fill="#f9730010" stroke="#f9730099" stroke-width="1.2" filter="url(#glow12)"/>
+  <text x="380" y="354" text-anchor="middle" font-family="monospace" font-size="10" fill="#f97300cc">'o'</text>
+  <line x1="277" y1="302" x2="364" y2="274" stroke="#f9730070" stroke-width="1"/>
+  <line x1="277" y1="318" x2="364" y2="346" stroke="#f9730070" stroke-width="1"/>
+  <!-- Level 3 -->
+  <circle cx="490" cy="60" r="14" fill="#f9730020" stroke="#f9730080" stroke-width="1" filter="url(#glow12)"/>
+  <text x="490" y="64" text-anchor="middle" font-family="monospace" font-size="9" fill="#f97300aa">'p'</text>
+  <circle cx="490" cy="100" r="14" fill="#f9730020" stroke="#f9730080" stroke-width="1" filter="url(#glow12)"/>
+  <text x="490" y="104" text-anchor="middle" font-family="monospace" font-size="9" fill="#f97300aa">'l'</text>
+  <circle cx="490" cy="145" r="14" fill="#f9730020" stroke="#f9730080" stroke-width="1" filter="url(#glow12)"/>
+  <text x="490" y="149" text-anchor="middle" font-family="monospace" font-size="9" fill="#f97300aa">'e'</text>
+  <circle cx="490" cy="185" r="14" fill="#f9730020" stroke="#f9730080" stroke-width="1" filter="url(#glow12)"/>
+  <text x="490" y="189" text-anchor="middle" font-family="monospace" font-size="9" fill="#f97300aa">'i'</text>
+  <line x1="396" y1="73" x2="476" y2="64" stroke="#f9730050" stroke-width="0.9"/>
+  <line x1="396" y1="81" x2="476" y2="99" stroke="#f9730050" stroke-width="0.9"/>
+  <line x1="396" y1="148" x2="476" y2="147" stroke="#f9730050" stroke-width="0.9"/>
+  <line x1="396" y1="155" x2="476" y2="183" stroke="#f9730050" stroke-width="0.9"/>
+  <!-- Leaf/word nodes highlighted -->
+  <circle cx="600" cy="60" r="13" fill="#f9730030" stroke="#f97300" stroke-width="1.5" filter="url(#glow12)"/>
+  <text x="600" y="64" text-anchor="middle" font-family="monospace" font-size="8" fill="#f97300">*</text>
+  <circle cx="600" cy="100" r="13" fill="#f9730020" stroke="#f9730070" stroke-width="1"/>
+  <text x="600" y="104" text-anchor="middle" font-family="monospace" font-size="8" fill="#f97300aa">*</text>
+  <line x1="504" y1="61" x2="587" y2="61" stroke="#f9730040" stroke-width="0.8"/>
+  <line x1="504" y1="100" x2="587" y2="100" stroke="#f9730040" stroke-width="0.8"/>
+  <!-- Hash map buckets on right -->
+  <g opacity="0.6">
+    <rect x="660" y="100" width="110" height="22" rx="2" fill="#f9730010" stroke="#f9730040" stroke-width="0.8"/>
+    <rect x="660" y="130" width="110" height="22" rx="2" fill="#f9730015" stroke="#f9730050" stroke-width="0.8"/>
+    <rect x="660" y="160" width="110" height="22" rx="2" fill="#f9730010" stroke="#f9730040" stroke-width="0.8"/>
+    <rect x="660" y="190" width="110" height="22" rx="2" fill="#f9730015" stroke="#f9730050" stroke-width="0.8"/>
+    <rect x="660" y="220" width="110" height="22" rx="2" fill="#f9730010" stroke="#f9730040" stroke-width="0.8"/>
+    <rect x="660" y="250" width="110" height="22" rx="2" fill="#f9730015" stroke="#f9730050" stroke-width="0.8"/>
+    <text x="716" y="85" text-anchor="middle" font-family="monospace" font-size="9" fill="#f9730060">HASH MAP</text>
+  </g>
+  <!-- Search path highlight -->
+  <path d="M130,225 Q190,180 260,140 Q320,115 380,80 Q435,72 490,60 Q545,60 600,60" stroke="#f97300" stroke-width="2" fill="none" stroke-dasharray="6,3" opacity="0.7" filter="url(#glow12)"/>
+  <text x="400" y="418" text-anchor="middle" font-family="monospace" font-size="10" fill="#f9730040">TRIE + HASH MAP · DICTIONARY · C++ DSA</text>
+</svg>

@@ -12,6 +12,7 @@ export default function Contact() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
+      gsap.set('.contact-item', { opacity: 1 });
       gsap.from('.contact-item', {
         y: 40,
         opacity: 0,
@@ -20,21 +21,21 @@ export default function Contact() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
+          start: 'top 85%',
           once: true,
         }
       });
     }, sectionRef);
-    
+
     return () => ctx.revert();
   }, []);
 
   return (
     <section id="contact" ref={sectionRef} className="relative py-32 px-8 lg:px-16 bg-[#050505] overflow-hidden">
       {/* Abstract Grid Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.02]" 
-           style={{ backgroundImage: 'linear-gradient(var(--text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
-      
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        style={{ backgroundImage: 'linear-gradient(var(--text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+
       <div className="relative z-10 max-w-[800px] mx-auto text-center">
         <div className="contact-item font-mono text-[var(--accent-cool)] text-sm tracking-widest uppercase mb-8 flex items-center justify-center gap-4">
           <span className="w-12 h-px bg-[var(--accent-cool)] opacity-50" />
@@ -77,7 +78,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <div className="contact-item mt-32 pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--text-secondary)] opacity-50 uppercase tracking-widest">
+        <div className="contact-item mt-16 pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-[var(--text-secondary)] opacity-50 uppercase tracking-widest">
           <span>&copy; 2026 Imran Ali.</span>
           <span>System Status: Online</span>
         </div>

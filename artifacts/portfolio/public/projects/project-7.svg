@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg7" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a0a2e"/>
+      <stop offset="100%" stop-color="#030303"/>
+    </radialGradient>
+    <filter id="glow7"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg7)"/>
+  <!-- Doodle face left -->
+  <g opacity="0.7" stroke="#aaa" stroke-width="1.5" fill="none">
+    <ellipse cx="160" cy="225" rx="80" ry="95"/>
+    <ellipse cx="140" cy="210" rx="12" ry="14"/>
+    <ellipse cx="180" cy="210" rx="12" ry="14"/>
+    <path d="M145 250 Q160 265 175 250"/>
+    <path d="M120 170 Q160 150 200 170"/>
+  </g>
+  <!-- GAN arrows -->
+  <g filter="url(#glow7)">
+    <line x1="260" y1="180" x2="380" y2="150" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,3"/>
+    <line x1="260" y1="270" x2="380" y2="300" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6,3"/>
+    <polygon points="375,145 385,155 370,158" fill="#8b5cf6"/>
+    <polygon points="375,295 385,305 370,308" fill="#8b5cf6"/>
+    <!-- Generator box -->
+    <rect x="380" y="130" width="100" height="50" rx="4" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+    <!-- Discriminator box -->
+    <rect x="380" y="280" width="100" height="50" rx="4" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6"/>
+    <line x1="480" y1="155" x2="545" y2="225" stroke="#8b5cf6" stroke-width="1.5"/>
+    <line x1="480" y1="305" x2="545" y2="225" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
+  </g>
+  <!-- Realistic face right (circles representing photo) -->
+  <g filter="url(#glow7)">
+    <ellipse cx="650" cy="225" rx="82" ry="97" fill="none" stroke="#8b5cf6" stroke-width="0.5"/>
+    <ellipse cx="650" cy="225" rx="82" ry="97" fill="#8b5cf610"/>
+    <ellipse cx="630" cy="210" rx="14" ry="16" fill="#8b5cf620" stroke="#8b5cf6" stroke-width="0.8"/>
+    <ellipse cx="670" cy="210" rx="14" ry="16" fill="#8b5cf620" stroke="#8b5cf6" stroke-width="0.8"/>
+    <path d="M630 255 Q650 272 670 255" stroke="#8b5cf6" stroke-width="1.5" fill="none"/>
+    <!-- Glowing outline -->
+    <ellipse cx="650" cy="225" rx="82" ry="97" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
+  </g>
+  <!-- L1 loss wave bottom -->
+  <polyline points="100,390 150,380 200,400 250,375 300,395 350,378 400,398 450,372 500,392 550,376 600,394 650,380 700,396" stroke="#8b5cf640" stroke-width="1.5" fill="none"/>
+  <!-- Title hint -->
+  <text x="400" y="430" text-anchor="middle" font-family="monospace" font-size="10" fill="#8b5cf660">CONDITIONAL GAN · SKETCH-TO-REALISTIC</text>
+</svg>
